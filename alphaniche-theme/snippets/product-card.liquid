@@ -1,0 +1,42 @@
+{%- assign first_variant = product.first_available_variant | default: product.variants.first -%}
+
+<a href="{{ product.url }}" class="prod-card">
+  <div class="prod-img-wrap">
+    {%- if product.featured_image -%}
+      <img class="prod-img"
+           src="{{ product.featured_image | image_url: width: 600 }}"
+           alt="{{ product.featured_image.alt | escape | default: product.title | escape }}"
+           width="600"
+           loading="lazy">
+    {%- else -%}
+      <div class="prod-img-placeholder">
+        <svg width="64" height="80" viewBox="0 0 64 80" fill="none" style="opacity:.15">
+          <rect x="24" y="8" width="16" height="8" rx="2" fill="#CDA65A"/>
+          <rect x="16" y="16" width="32" height="56" rx="4" fill="#CDA65A"/>
+        </svg>
+      </div>
+    {%- endif -%}
+    <div class="prod-quick">Ver Detalhes</div>
+  </div>
+  <div class="prod-info">
+    <div class="prod-brand">{{ product.vendor }}</div>
+    <h3 class="prod-name">{{ product.title }}</h3>
+    {%- if product.variants.size > 1 -%}
+      <div class="prod-sizes">
+        {%- for variant in product.variants limit: 5 -%}
+          <span class="size-pill">{{ variant.title }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    <div class="prod-price-row">
+      <span class="prod-price">
+        R$ {{ first_variant.price | money_without_currency | replace: '.', ',' }}
+      </span>
+      {%- if first_variant.compare_at_price > first_variant.price -%}
+        <span class="prod-price-old">
+          R$ {{ first_variant.compare_at_price | money_without_currency | replace: '.', ',' }}
+        </span>
+      {%- endif -%}
+    </div>
+  </div>
+</a>
