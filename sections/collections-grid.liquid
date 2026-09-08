@@ -1,0 +1,53 @@
+<section class="collections-grid">
+  <div class="cg-inner">
+    {% for block in section.blocks %}
+      {% assign col = block.settings.collection %}
+      <a href="{{ col.url | default: block.settings.link | default: '#' }}" class="cg-card" {{ block.shopify_attributes }}>
+        <div class="cg-card-media">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | img_url: '800x800', crop: 'center' }}" alt="{{ block.settings.label }}" loading="lazy" width="800" height="800">
+          {% elsif col.image %}
+            <img src="{{ col.image | img_url: '800x800', crop: 'center' }}" alt="{{ col.title }}" loading="lazy" width="800" height="800">
+          {% else %}
+            <div class="cg-card-no-image"></div>
+          {% endif %}
+          <div class="cg-card-overlay"></div>
+        </div>
+        <div class="cg-card-content">
+          <span class="cg-card-label">{{ block.settings.label | default: col.title }}</span>
+          <span class="cg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections Grid",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Card",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colecao" },
+        { "type": "image_picker", "id": "image", "label": "Imagem (opcional)" },
+        { "type": "text", "id": "label", "label": "Rotulo", "default": "Colecao" },
+        { "type": "url", "id": "link", "label": "Link alternativo" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections Grid",
+      "blocks": [
+        { "type": "collection", "settings": { "label": "MASCULINO" } },
+        { "type": "collection", "settings": { "label": "FEMININO" } },
+        { "type": "collection", "settings": { "label": "UNISSEX" } },
+        { "type": "collection", "settings": { "label": "DECANTS" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
