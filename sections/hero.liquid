@@ -1,0 +1,38 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">{{ section.settings.eyebrow | default: 'Maisons de Parfum Selecionadas' }}</div>
+      <h1>
+        {{ section.settings.headline | default: 'Perfumaria de <em>Nicho</em> ao seu alcance' }}
+      </h1>
+      <p class="hero-sub">{{ section.settings.subheadline | default: 'Decants autênticos das melhores maisons do mundo. De 2ml a 30ml — experimente antes de investir.' }}</p>
+      <div class="hero-cta">
+        <a href="{{ section.settings.primary_btn_url | default: '/collections/all' }}" class="btn-primary">
+          {{ section.settings.primary_btn_label | default: 'Explorar Coleção' }}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="{{ section.settings.secondary_btn_url | default: '/pages/sobre' }}" class="btn-outline">
+          {{ section.settings.secondary_btn_label | default: 'Nossa História' }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {"type": "text",    "id": "eyebrow",             "label": "Eyebrow",          "default": "Maisons de Parfum Selecionadas"},
+    {"type": "textarea","id": "headline",             "label": "Headline",         "default": "Perfumaria de <em>Nicho</em> ao seu alcance"},
+    {"type": "textarea","id": "subheadline",          "label": "Subtítulo",        "default": "Decants autênticos das melhores maisons do mundo. De 2ml a 30ml — experimente antes de investir."},
+    {"type": "text",    "id": "primary_btn_label",   "label": "Botão primário",   "default": "Explorar Coleção"},
+    {"type": "url",     "id": "primary_btn_url",     "label": "Link primário",    "default": "/collections/all"},
+    {"type": "text",    "id": "secondary_btn_label", "label": "Botão secundário", "default": "Nossa História"},
+    {"type": "url",     "id": "secondary_btn_url",   "label": "Link secundário",  "default": "/pages/sobre"}
+  ],
+  "presets": [{"name": "Hero"}]
+}
+{% endschema %}

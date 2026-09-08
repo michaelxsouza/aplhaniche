@@ -1,0 +1,43 @@
+<section style="padding:0">
+  <div class="editorial-sensory">
+    <div class="editorial-visual">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 900 }}"
+             alt="{{ section.settings.image.alt | default: 'Alpha Niche Editorial' }}"
+             style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+      {%- else -%}
+        <div style="width:100%;height:100%;background:var(--black-3);display:flex;align-items:center;justify-content:center;">
+          <span style="color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">Adicione uma imagem</span>
+        </div>
+      {%- endif -%}
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,5,5,.3) 0%,transparent 100%);pointer-events:none"></div>
+    </div>
+    <div class="editorial-content">
+      <div class="editorial-content-inner">
+        <p class="sec-eyebrow">{{ section.settings.eyebrow | default: 'Sensory Journey' }}</p>
+        <blockquote class="editorial-quote">
+          {{ section.settings.quote | default: 'Cada decant é uma <em>viagem sensorial</em> sem compromisso' }}
+        </blockquote>
+        <p class="editorial-body">{{ section.settings.body | default: 'Acreditamos que a perfumaria de nicho deve ser acessível a todos. Por isso, oferecemos amostras autênticas extraídas diretamente dos frascos originais, permitindo que você explore sem limites.' }}</p>
+        <a href="{{ section.settings.btn_url | default: '/collections/all' }}" class="btn-outline">
+          {{ section.settings.btn_label | default: 'Explorar Coleção' }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial Sensorial",
+  "settings": [
+    {"type": "image_picker", "id": "image",   "label": "Imagem"},
+    {"type": "text",         "id": "eyebrow", "label": "Eyebrow",   "default": "Sensory Journey"},
+    {"type": "textarea",     "id": "quote",   "label": "Citação",   "default": "Cada decant é uma viagem sensorial sem compromisso"},
+    {"type": "textarea",     "id": "body",    "label": "Texto",     "default": "Acreditamos que a perfumaria de nicho deve ser acessível a todos."},
+    {"type": "text",         "id": "btn_label","label": "Botão",    "default": "Explorar Coleção"},
+    {"type": "url",          "id": "btn_url", "label": "Link botão","default": "/collections/all"}
+  ],
+  "presets": [{"name": "Editorial Sensorial"}]
+}
+{% endschema %}

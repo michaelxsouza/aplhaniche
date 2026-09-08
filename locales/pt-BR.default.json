@@ -1,0 +1,20 @@
+{
+  "general": {
+    "search": { "placeholder": "Buscar perfumes..." }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Adicionar ao Carrinho",
+      "sold_out": "Esgotado",
+      "unavailable": "Indisponível"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Carrinho",
+      "subtotal": "Subtotal",
+      "checkout": "Finalizar Compra",
+      "empty": "Seu carrinho está vazio"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+<div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrinho" aria-hidden="true">
+  <div class="cart-head">
+    <h2 class="cart-title serif">Carrinho</h2>
+    <button class="icon-btn" id="cart-close" aria-label="Fechar carrinho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="cart-body" id="cart-body">
+    <div class="cart-empty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <p>Seu carrinho está vazio</p>
+    </div>
+  </div>
+
+  <div class="cart-foot">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-val" id="cart-subtotal-val">R$ 0,00</span>
+    </div>
+    <a href="/checkout" class="cart-checkout">Finalizar Compra</a>
+  </div>
+</div>

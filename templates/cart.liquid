@@ -1,0 +1,71 @@
+<!-- CART PAGE -->
+<div style="padding:60px 0 80px;">
+  <div class="container" style="max-width:900px">
+    <h1 class="serif" style="font-size:clamp(32px,4vw,48px);font-weight:300;margin-bottom:40px;">
+      Carrinho
+    </h1>
+
+    {%- if cart.item_count == 0 -%}
+      <div style="text-align:center;padding:80px 0;">
+        <p style="font-family:var(--font-serif);font-size:24px;font-weight:300;color:var(--muted);margin-bottom:24px;">
+          Seu carrinho está vazio
+        </p>
+        <a href="/collections/all" class="btn-primary">Explorar Produtos</a>
+      </div>
+    {%- else -%}
+      {%- form 'cart', cart -%}
+        <div style="display:grid;gap:0;">
+          {%- for item in cart.items -%}
+            <div style="display:flex;gap:24px;padding:24px 0;border-bottom:1px solid rgba(205,166,90,.08);">
+              <a href="{{ item.url }}">
+                {%- if item.image -%}
+                  <img src="{{ item.image | image_url: width: 150 }}"
+                       alt="{{ item.title | escape }}"
+                       style="width:90px;height:120px;object-fit:cover;background:var(--black-2);">
+                {%- endif -%}
+              </a>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;">{{ item.vendor }}</div>
+                <a href="{{ item.url }}" style="font-family:var(--font-serif);font-size:18px;font-weight:400;display:block;margin-bottom:4px;">{{ item.product_title }}</a>
+                {%- unless item.variant_title == 'Default Title' -%}
+                  <div style="font-size:11px;color:var(--muted);margin-bottom:12px;">{{ item.variant_title }}</div>
+                {%- endunless -%}
+                <div style="display:flex;align-items:center;gap:16px;">
+                  <div style="display:flex;align-items:center;border:1px solid rgba(205,166,90,.15);border-radius:1px;">
+                    <a href="{{ routes.cart_url }}?updates[{{ item.key }}]={{ item.quantity | minus: 1 }}"
+                       style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;">−</a>
+                    <span style="width:32px;text-align:center;font-size:13px;">{{ item.quantity }}</span>
+                    <a href="{{ routes.cart_url }}?updates[{{ item.key }}]={{ item.quantity | plus: 1 }}"
+                       style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;">+</a>
+                  </div>
+                  <a href="{{ routes.cart_remove_url }}{{ item.key }}" style="font-size:11px;color:var(--muted);text-decoration:underline;">Remover</a>
+                </div>
+              </div>
+              <div style="text-align:right;flex-shrink:0;">
+                <div style="font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;">
+                  R$ {{ item.final_line_price | money_without_currency | replace: '.', ',' }}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div style="max-width:400px;margin-left:auto;margin-top:40px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;color:var(--muted);">
+            <span>Subtotal</span>
+            <span style="color:var(--off-white);font-size:20px;font-weight:600;">
+              R$ {{ cart.total_price | money_without_currency | replace: '.', ',' }}
+            </span>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin-bottom:20px;text-align:right;">Frete calculado no checkout</p>
+          <button type="submit" name="checkout" class="btn-primary" style="width:100%;justify-content:center;padding:16px;">
+            Finalizar Compra
+          </button>
+          <a href="/collections/all" class="btn-outline" style="width:100%;justify-content:center;margin-top:12px;padding:14px;">
+            Continuar Comprando
+          </a>
+        </div>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<section style="padding:48px 0;overflow:hidden;">
+  <div class="sec-head" style="margin-bottom:32px">
+    <span class="sec-eyebrow">{{ section.settings.eyebrow | default: 'Nossas Marcas' }}</span>
+  </div>
+  <div class="brands-wrap">
+    <div class="brands-track">
+      {%- assign brands = "Chanel,Dior,Tom Ford,Creed,Maison Margiela,Guerlain,Hermès,Byredo,Le Labo,Amouage,Xerjoff,Initio,Mancera,Montale,Louis Vuitton,Baccarat Rouge,Memo Paris,Roja Parfums" | split: "," -%}
+      {%- for brand in brands -%}
+        <a href="/collections/all?filter.p.vendor={{ brand | url_encode }}" class="brand-item">{{ brand }}</a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carrossel de Marcas",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Nossas Marcas"}
+  ],
+  "presets": [{"name": "Carrossel de Marcas"}]
+}
+{% endschema %}
