@@ -253,41 +253,60 @@ section + section{padding-top:0}
 }
 
 /* ─── HERO ─────────────────────────────────────────── */
-.hero{
+.hero-full{
   min-height:92vh;
   display:flex;
   align-items:center;
   position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(ellipse 60% 80% at 70% 50%,rgba(205,166,90,.06) 0%,transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 30%,rgba(205,166,90,.04) 0%,transparent 60%),
-    var(--black);
+  background-size:cover;
+  background-position:center right;
+  background-color:var(--black);
 }
-.hero-content{
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(5,5,5,.92) 0%,
+    rgba(5,5,5,.75) 45%,
+    rgba(5,5,5,.25) 70%,
+    rgba(5,5,5,.05) 100%
+  );
+  z-index:1;
+}
+.hero-inner{
   position:relative;
   z-index:2;
-  max-width:640px;
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:80px var(--pad);
+  width:100%;
 }
-.hero-eyebrow{
-  font-size:10px;
-  letter-spacing:.3em;
+.hero-text{
+  max-width:560px;
+}
+.hero-eyebrow-line{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:24px;
+}
+.hero-line{
+  display:block;
+  width:40px;height:1px;
+  background:var(--gold);
+  opacity:.7;
+  flex-shrink:0;
+}
+.hero-eyebrow-text{
+  font-size:11px;
+  letter-spacing:.25em;
   text-transform:uppercase;
   color:var(--gold);
   font-weight:500;
-  margin-bottom:20px;
-  display:flex;
-  align-items:center;
-  gap:12px;
 }
-.hero-eyebrow::before{
-  content:'';
-  display:block;
-  width:32px;height:1px;
-  background:var(--gold);
-  opacity:.6;
-}
-.hero h1{
+.hero-heading{
   font-family:var(--font-serif);
   font-size:clamp(48px,7vw,96px);
   font-weight:300;
@@ -295,18 +314,18 @@ section + section{padding-top:0}
   letter-spacing:-.01em;
   color:var(--off-white);
   margin-bottom:24px;
-  text-wrap:balance;
 }
-.hero h1 em{
+.hero-heading-em{
   font-style:italic;
   color:var(--gold);
+  display:block;
 }
 .hero-sub{
   font-size:14px;
   color:var(--warm-gray);
   margin-bottom:40px;
   max-width:420px;
-  line-height:1.7;
+  line-height:1.8;
   letter-spacing:.02em;
 }
 .hero-cta{
@@ -314,6 +333,16 @@ section + section{padding-top:0}
   gap:16px;
   flex-wrap:wrap;
 }
+/* legacy .hero fallback */
+.hero{
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:var(--black);
+}
+.hero-content{position:relative;z-index:2;max-width:640px;}
 
 /* ─── BENEFITS BAR ─────────────────────────────────── */
 .benefits-bar{
