@@ -46,6 +46,7 @@
     "editorial": {
       "type": "editorial",
       "settings": {
+        "image": "shopify://shop_images/img-00.png",
         "eyebrow": "Sensory Journey",
         "quote": "Cada decant é uma viagem sensorial sem compromisso",
         "body": "Acreditamos que a perfumaria de nicho deve ser acessível a todos.",
