@@ -8,6 +8,48 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefits-bar",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Curadoria Exclusiva",
+        "title": "Mais Desejados",
+        "products_count": 8,
+        "show_view_all": true
+      }
+    },
+    "brands": {
+      "type": "brands-carousel",
+      "settings": {}
+    },
+    "editorial": {
+      "type": "editorial",
+      "settings": {}
+    },
+    "new-arrivals": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Recem Chegados",
+        "title": "Novidades",
+        "products_count": 4,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "benefits",
+    "featured",
+    "brands",
+    "editorial",
+    "new-arrivals"
+  ]
 }
