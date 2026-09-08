@@ -11,7 +11,17 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "bg_image": "shopify://shop_images/hero-alpha.png",
+        "eyebrow": "Alpha Niche · Decants Exclusivos",
+        "headline": "A essência do",
+        "headline_em": "extraordinário",
+        "subheadline": "Perfumes de luxo em decants cuidadosamente selecionados para a sua experiência olfativa.",
+        "btn1_label": "Explorar Coleção",
+        "btn1_url": "",
+        "btn2_label": "Conheça a Marca",
+        "btn2_url": ""
+      }
     },
     "benefits": {
       "type": "benefits-bar",
@@ -22,23 +32,33 @@
       "settings": {
         "eyebrow": "Curadoria Exclusiva",
         "title": "Mais Desejados",
+        "collection": "",
         "products_count": 8,
         "show_view_all": true
       }
     },
     "brands": {
       "type": "brands-carousel",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Nossas Marcas"
+      }
     },
     "editorial": {
       "type": "editorial",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Sensory Journey",
+        "quote": "Cada decant é uma viagem sensorial sem compromisso",
+        "body": "Acreditamos que a perfumaria de nicho deve ser acessível a todos.",
+        "btn_label": "Explorar Coleção",
+        "btn_url": "shopify://collections/all"
+      }
     },
     "new-arrivals": {
       "type": "featured-products",
       "settings": {
         "eyebrow": "Recem Chegados",
         "title": "Novidades",
+        "collection": "",
         "products_count": 4,
         "show_view_all": false
       }
