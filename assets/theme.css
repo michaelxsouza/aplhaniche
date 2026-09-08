@@ -182,33 +182,35 @@ body{
 .btn-primary{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding:14px 32px;
+  gap:10px;
+  padding:16px 42px;
   background:var(--gold);
   color:var(--black);
   font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
+  font-weight:700;
+  letter-spacing:.15em;
   text-transform:uppercase;
-  border-radius:var(--radius);
-  transition:background var(--fast),transform var(--fast);
+  border-radius:50px;
+  box-shadow:0 4px 24px rgba(205,166,90,0.35);
+  transition:background var(--fast),transform var(--fast),box-shadow var(--fast);
 }
-.btn-primary:hover{background:var(--gold-l);transform:translateY(-1px)}
-.btn-outline{
+.btn-primary:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 32px rgba(205,166,90,0.5)}
+.btn-secondary{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding:13px 31px;
-  border:1px solid rgba(205,166,90,.4);
-  color:var(--gold);
+  gap:10px;
+  padding:15px 40px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.55);
+  color:var(--white);
   font-size:11px;
   font-weight:500;
-  letter-spacing:.12em;
+  letter-spacing:.15em;
   text-transform:uppercase;
-  border-radius:var(--radius);
+  border-radius:50px;
   transition:border-color var(--fast),background var(--fast);
 }
-.btn-outline:hover{border-color:var(--gold);background:rgba(205,166,90,.06)}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1)}
 
 /* ─── SECTION TITLES ───────────────────────────────── */
 .sec-head{
