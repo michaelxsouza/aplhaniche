@@ -25,6 +25,13 @@
     },
     "collections": {
       "type": "collections-grid",
+      "blocks": {
+        "cg1": { "type": "collection", "settings": { "label": "MASCULINO", "link": "/collections/masculino" } },
+        "cg2": { "type": "collection", "settings": { "label": "FEMININO", "link": "/collections/feminino" } },
+        "cg3": { "type": "collection", "settings": { "label": "UNISSEX", "link": "/collections/unissex" } },
+        "cg4": { "type": "collection", "settings": { "label": "DECANTS", "link": "/collections/decants" } }
+      },
+      "block_order": ["cg1", "cg2", "cg3", "cg4"],
       "settings": {}
     },
     "benefits": {
