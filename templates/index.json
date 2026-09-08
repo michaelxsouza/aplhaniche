@@ -23,6 +23,10 @@
         "btn2_url": ""
       }
     },
+    "collections": {
+      "type": "collections-grid",
+      "settings": {}
+    },
     "benefits": {
       "type": "benefits-bar",
       "settings": {}
@@ -67,6 +71,7 @@
   },
   "order": [
     "hero",
+    "collections",
     "benefits",
     "featured",
     "brands",
