@@ -1,0 +1,86 @@
+<section class="hero-full" {% if section.settings.bg_image != blank %}style="background-image: url('{{ section.settings.bg_image | img_url: 'master' }}')"{% endif %}>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="hero-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h1 class="hero-heading">
+      {{ section.settings.headline }}{% if section.settings.headline_em != blank %} <em class="hero-heading-em">{{ section.settings.headline_em }}</em>{% endif %}
+    </h1>
+    {% if section.settings.subheadline != blank %}
+      <p class="hero-sub">{{ section.settings.subheadline }}</p>
+    {% endif %}
+    <div class="hero-cta">
+      {% if section.settings.btn1_label != blank %}
+        <a href="{{ section.settings.btn1_url }}" class="btn btn-primary">{{ section.settings.btn1_label }}</a>
+      {% endif %}
+      {% if section.settings.btn2_label != blank %}
+        <a href="{{ section.settings.btn2_url }}" class="btn btn-secondary">{{ section.settings.btn2_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Imagem de Fundo"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Alpha Niche · Decants Exclusivos"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Título",
+      "default": "A essência do"
+    },
+    {
+      "type": "text",
+      "id": "headline_em",
+      "label": "Título (destaque)",
+      "default": "extraordinário"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Subtítulo",
+      "default": "Perfumes de luxo em decants cuidadosamente selecionados para a sua experiência olfativa."
+    },
+    {
+      "type": "text",
+      "id": "btn1_label",
+      "label": "Botão 1 - Texto",
+      "default": "Explorar Coleção"
+    },
+    {
+      "type": "url",
+      "id": "btn1_url",
+      "label": "Botão 1 - Link"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Botão 2 - Texto",
+      "default": "Conheça a Marca"
+    },
+    {
+      "type": "url",
+      "id": "btn2_url",
+      "label": "Botão 2 - Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
