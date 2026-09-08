@@ -1,0 +1,68 @@
+{% assign products = section.settings.collection.products | default: collections.all.products %}
+
+<section class="featured-products">
+  <div class="section-inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="product-grid">
+      {% for product in products limit: section.settings.products_count %}
+        {%- render 'product-card', product: product -%}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_view_all and section.settings.collection != blank %}
+      <div class="section-cta">
+        <a href="{{ section.settings.collection.url }}" class="btn btn-secondary">Ver Todos</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produtos em Destaque",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Mais Desejados"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Coleção"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "label": "Número de produtos"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Mostrar botão Ver Todos",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produtos em Destaque"
+    }
+  ]
+}
+{% endschema %}
