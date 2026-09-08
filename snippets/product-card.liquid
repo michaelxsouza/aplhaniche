@@ -1,0 +1,37 @@
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card-link">
+    <div class="product-card-media">
+      {% if product.featured_image %}
+        <img
+          src="{{ product.featured_image | img_url: '400x400', crop: 'center' }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      {% else %}
+        <div class="product-card-no-image"></div>
+      {% endif %}
+      {% if product.compare_at_price > product.price %}
+        <span class="product-card-badge">Promoção</span>
+      {% endif %}
+    </div>
+    <div class="product-card-info">
+      <p class="product-card-vendor">{{ product.vendor }}</p>
+      <h3 class="product-card-title">{{ product.title }}</h3>
+      <div class="product-card-price">
+        {% if product.compare_at_price > product.price %}
+          <span class="product-card-price-compare">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        <span class="product-card-price-current">{{ product.price | money }}</span>
+      </div>
+    </div>
+  </a>
+  <button
+    class="product-card-atc btn btn-primary"
+    data-product-id="{{ product.variants.first.id }}"
+    onclick="addToCart({{ product.variants.first.id }}, this)"
+  >
+    Adicionar
+  </button>
+</div>
