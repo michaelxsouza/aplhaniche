@@ -31,7 +31,8 @@
           "settings": {
             "collection": "",
             "label": "MASCULINO",
-            "link": "/collections/masculino"
+            "link": "/collections/masculino",
+            "image": "shopify://shop_images/image_4e927949-624f-40e6-8da9-75af2e9e6716.png"
           }
         },
         "cg2": {
@@ -39,7 +40,8 @@
           "settings": {
             "collection": "",
             "label": "FEMININO",
-            "link": "/collections/feminino"
+            "link": "/collections/feminino",
+            "image": "shopify://shop_images/image_379e86b8-456c-4428-8ad2-c874fb809f10.png"
           }
         },
         "cg3": {
@@ -47,7 +49,8 @@
           "settings": {
             "collection": "",
             "label": "UNISSEX",
-            "link": "/collections/unissex"
+            "link": "/collections/unissex",
+            "image": "shopify://shop_images/image_367dce23-657a-4cb1-9bfd-40c208b513fa.png"
           }
         },
         "cg4": {
@@ -55,7 +58,8 @@
           "settings": {
             "collection": "",
             "label": "DECANTS",
-            "link": "/collections/decants"
+            "link": "/collections/decants",
+            "image": "shopify://shop_images/image_8651eb6d-96ce-4475-a048-227ec537e4df.png"
           }
         }
       },
