@@ -1308,7 +1308,7 @@ footer{
   animation: hero-slide-a 12s infinite;
 }
 .hero-full::after {
-  background-image: url('https://cdn.shopify.com/s/files/1/0758/6408/0453/files/image.png');
+  background-image: url('https://cdn.shopify.com/s/files/1/0758/6408/0453/files/image_23c254ab-3329-4204-b496-908cc27eeee8.png');
   animation: hero-slide-b 12s infinite;
 }
 @keyframes hero-slide-a {
