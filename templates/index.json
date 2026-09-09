@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "bg_image": "shopify://shop_images/hero-alpha.png",
+        "bg_image": "shopify://shop_images/hero02.png",
         "eyebrow": "Alpha Niche · Decants Exclusivos",
         "headline": "A essência do",
         "headline_em": "extraordinário",
@@ -26,12 +26,45 @@
     "collections": {
       "type": "collections-grid",
       "blocks": {
-        "cg1": { "type": "collection", "settings": { "label": "MASCULINO", "link": "/collections/masculino" } },
-        "cg2": { "type": "collection", "settings": { "label": "FEMININO", "link": "/collections/feminino" } },
-        "cg3": { "type": "collection", "settings": { "label": "UNISSEX", "link": "/collections/unissex" } },
-        "cg4": { "type": "collection", "settings": { "label": "DECANTS", "link": "/collections/decants" } }
+        "cg1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "MASCULINO",
+            "link": "/collections/masculino"
+          }
+        },
+        "cg2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "FEMININO",
+            "link": "/collections/feminino"
+          }
+        },
+        "cg3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "UNISSEX",
+            "link": "/collections/unissex"
+          }
+        },
+        "cg4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "DECANTS",
+            "link": "/collections/decants"
+          }
+        }
       },
-      "block_order": ["cg1", "cg2", "cg3", "cg4"],
+      "block_order": [
+        "cg1",
+        "cg2",
+        "cg3",
+        "cg4"
+      ],
       "settings": {}
     },
     "benefits": {
