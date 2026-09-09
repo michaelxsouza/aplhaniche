@@ -1,0 +1,289 @@
+<!-- ALPHA NICHE — LUXURY SEARCH RESULTS SECTION -->
+<style>
+/* ---- SEARCH RESULTS PAGE ---- */
+.sr-page {
+  background: #080604;
+  min-height: 60vh;
+  padding: 80px 0 120px;
+  color: #fff;
+}
+.sr-header {
+  text-align: center;
+  padding: 0 20px 64px;
+  border-bottom: 1px solid rgba(205,166,90,0.12);
+  margin-bottom: 64px;
+}
+.sr-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(205,166,90,0.6);
+  margin-bottom: 28px;
+}
+.sr-query {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0 0 12px;
+}
+.sr-query em {
+  font-style: normal;
+  color: rgba(205,166,90,0.85);
+}
+.sr-count {
+  font-family: var(--font-sans);
+  font-size: 0.63rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 16px;
+}
+/* refine search bar */
+.sr-refine {
+  max-width: 540px;
+  margin: 36px auto 0;
+}
+.sr-refine-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(205,166,90,0.25);
+  padding-bottom: 2px;
+}
+.sr-refine-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  padding: 10px 12px 10px 0;
+  outline: none;
+  caret-color: rgba(205,166,90,0.9);
+}
+.sr-refine-input::placeholder { color: rgba(255,255,255,0.2); }
+.sr-refine-btn {
+  background: none;
+  border: none;
+  color: rgba(205,166,90,0.6);
+  cursor: pointer;
+  padding: 6px;
+  line-height: 0;
+  transition: color 0.2s;
+}
+.sr-refine-btn:hover { color: rgba(205,166,90,1); }
+/* grid */
+.sr-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.sr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+@media (max-width: 1100px) { .sr-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .sr-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .sr-grid { grid-template-columns: 1fr; } }
+/* product card */
+.sr-card {
+  position: relative;
+  background: #0d0b08;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.sr-card:hover { transform: translateY(-4px); z-index: 2; }
+.sr-card-img-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #111;
+}
+.sr-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.sr-card:hover .sr-card-img { transform: scale(1.04); }
+.sr-card-sold-out {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  background: rgba(8,6,4,0.85);
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+.sr-card-body {
+  padding: 20px 20px 24px;
+  border-top: 1px solid rgba(205,166,90,0.08);
+}
+.sr-card-vendor {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(205,166,90,0.5);
+  margin-bottom: 6px;
+}
+.sr-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+.sr-card-price {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: rgba(205,166,90,0.8);
+  font-variant-numeric: tabular-nums;
+}
+/* empty state */
+.sr-empty {
+  text-align: center;
+  padding: 80px 20px;
+  grid-column: 1 / -1;
+}
+.sr-empty-icon {
+  margin: 0 auto 24px;
+  color: rgba(205,166,90,0.2);
+}
+.sr-empty-title {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 200;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.sr-empty-sub {
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+@media (max-width: 768px) {
+  .sr-container { padding: 0 16px; }
+  .sr-header { padding: 0 16px 48px; margin-bottom: 48px; }
+}
+</style>
+
+<div class="sr-page">
+  <div class="sr-header">
+    <p class="sr-eyebrow">Resultados da pesquisa</p>
+    <h1 class="sr-query">
+      {% if search.performed %}
+        Resultados para <em>&ldquo;{{ search.terms | escape }}&rdquo;</em>
+      {% else %}
+        Pesquisar
+      {% endif %}
+    </h1>
+    {% if search.performed %}
+      <p class="sr-count">
+        {% if search.results_count == 0 %}
+          Nenhum resultado encontrado
+        {% elsif search.results_count == 1 %}
+          1 produto encontrado
+        {% else %}
+          {{ search.results_count }} produtos encontrados
+        {% endif %}
+      </p>
+    {% endif %}
+    <div class="sr-refine">
+      <form action="/search" method="get">
+        <input type="hidden" name="type" value="product">
+        <div class="sr-refine-inner">
+          <input
+            type="search"
+            name="q"
+            class="sr-refine-input"
+            value="{{ search.terms | escape }}"
+            placeholder="Refinar pesquisa..."
+            autocomplete="off"
+          >
+          <button type="submit" class="sr-refine-btn" aria-label="Pesquisar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="sr-container">
+    <div class="sr-grid">
+      {% if search.performed and search.results_count > 0 %}
+        {% for product in search.results %}
+          <a href="{{ product.url }}" class="sr-card">
+            <div class="sr-card-img-wrap">
+              {% if product.featured_image %}
+                <img
+                  class="sr-card-img"
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                  loading="lazy"
+                  width="600"
+                  height="800"
+                >
+              {% else %}
+                <div style="width:100%;height:100%;background:#151210;display:flex;align-items:center;justify-content:center;">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(205,166,90,0.2)" stroke-width="1">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                </div>
+              {% endif %}
+              {% unless product.available %}
+                <span class="sr-card-sold-out">Esgotado</span>
+              {% endunless %}
+            </div>
+            <div class="sr-card-body">
+              {% if product.vendor != blank %}
+                <p class="sr-card-vendor">{{ product.vendor }}</p>
+              {% endif %}
+              <h3 class="sr-card-title">{{ product.title }}</h3>
+              <p class="sr-card-price">{{ product.price | money }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="sr-empty">
+          <svg class="sr-empty-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          {% if search.performed %}
+            <p class="sr-empty-title">Nenhum perfume encontrado</p>
+            <p class="sr-empty-sub">Tente buscar pela marca, nota olfativa ou categoria</p>
+          {% else %}
+            <p class="sr-empty-title">Pesquise nossa coleção</p>
+            <p class="sr-empty-sub">Digite o nome do perfume, marca ou nota olfativa</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Resultados da Pesquisa",
+  "settings": []
+}
+{% endschema %}
