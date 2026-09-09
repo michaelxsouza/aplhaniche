@@ -12,6 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/2316035cb86d4e7e9c2ce4ce355c53c2.mp4",
         "eyebrow": "Alpha Niche · Decants Exclusivos",
         "headline": "A essência do",
         "headline_em": "extraordinário",
@@ -19,8 +20,7 @@
         "btn1_label": "Explorar Coleção",
         "btn1_url": "",
         "btn2_label": "Conheça a Marca",
-        "btn2_url": "",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/2316035cb86d4e7e9c2ce4ce355c53c2.mp4"
+        "btn2_url": ""
       }
     },
     "collections": {
@@ -30,36 +30,36 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "label": "MASCULINO",
-            "link": "/collections/masculino",
-            "image": "shopify://shop_images/image_4e927949-624f-40e6-8da9-75af2e9e6716.png"
+            "image": "shopify://shop_images/image_4e927949-624f-40e6-8da9-75af2e9e6716.png",
+            "label": "",
+            "link": "/collections/masculino"
           }
         },
         "cg2": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "label": "FEMININO",
-            "link": "/collections/feminino",
-            "image": "shopify://shop_images/image_379e86b8-456c-4428-8ad2-c874fb809f10.png"
+            "image": "shopify://shop_images/image_379e86b8-456c-4428-8ad2-c874fb809f10.png",
+            "label": "",
+            "link": "/collections/feminino"
           }
         },
         "cg3": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "label": "UNISSEX",
-            "link": "/collections/unissex",
-            "image": "shopify://shop_images/image_367dce23-657a-4cb1-9bfd-40c208b513fa.png"
+            "image": "shopify://shop_images/image_367dce23-657a-4cb1-9bfd-40c208b513fa.png",
+            "label": "",
+            "link": "/collections/unissex"
           }
         },
         "cg4": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "label": "DECANTS",
-            "link": "/collections/decants",
-            "image": "shopify://shop_images/image_8651eb6d-96ce-4475-a048-227ec537e4df.png"
+            "image": "shopify://shop_images/image_8651eb6d-96ce-4475-a048-227ec537e4df.png",
+            "label": "",
+            "link": "/collections/decants"
           }
         }
       },
