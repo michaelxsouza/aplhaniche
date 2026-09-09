@@ -1,4 +1,19 @@
-<section class="hero-full" {% if section.settings.bg_image != blank %}style="background-image: url('{{ section.settings.bg_image | img_url: 'master' }}')"{% endif %}>
+<style>
+  .hero-full { position: relative; overflow: hidden; }
+  .hero__video-bg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+  .hero-overlay, .hero-inner { position: relative; z-index: 1; }
+</style>
+
+<section class="hero-full"{% if section.settings.video_url == blank and section.settings.bg_image != blank %} style="background-image: url('{{ section.settings.bg_image | img_url: 'master' }}')"{% endif %}>
+  {%- if section.settings.video_url != blank -%}
+    <video class="hero__video-bg" autoplay muted loop playsinline>
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+  {%- endif -%}
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     {% if section.settings.eyebrow != blank %}
@@ -25,62 +40,17 @@
 {
   "name": "Hero",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "bg_image",
-      "label": "Imagem de Fundo"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Alpha Niche · Decants Exclusivos"
-    },
-    {
-      "type": "text",
-      "id": "headline",
-      "label": "Título",
-      "default": "A essência do"
-    },
-    {
-      "type": "text",
-      "id": "headline_em",
-      "label": "Título (destaque)",
-      "default": "extraordinário"
-    },
-    {
-      "type": "textarea",
-      "id": "subheadline",
-      "label": "Subtítulo",
-      "default": "Perfumes de luxo em decants cuidadosamente selecionados para a sua experiência olfativa."
-    },
-    {
-      "type": "text",
-      "id": "btn1_label",
-      "label": "Botão 1 - Texto",
-      "default": "Explorar Coleção"
-    },
-    {
-      "type": "url",
-      "id": "btn1_url",
-      "label": "Botão 1 - Link"
-    },
-    {
-      "type": "text",
-      "id": "btn2_label",
-      "label": "Botão 2 - Texto",
-      "default": "Conheça a Marca"
-    },
-    {
-      "type": "url",
-      "id": "btn2_url",
-      "label": "Botão 2 - Link"
-    }
+    { "type": "text", "id": "video_url", "label": "URL do Vídeo (MP4)", "info": "Cole aqui a URL do vídeo do Shopify Files." },
+    { "type": "image_picker", "id": "bg_image", "label": "Imagem de Fundo" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Alpha Niche · Decants Exclusivos" },
+    { "type": "text", "id": "headline", "label": "Título", "default": "A essência do" },
+    { "type": "text", "id": "headline_em", "label": "Título (destaque)", "default": "extraordinário" },
+    { "type": "textarea", "id": "subheadline", "label": "Subtítulo", "default": "Perfumes de luxo em decants cuidadosamente selecionados para a sua experiência olfativa." },
+    { "type": "text", "id": "btn1_label", "label": "Botão 1 - Texto", "default": "Explorar Coleção" },
+    { "type": "url", "id": "btn1_url", "label": "Botão 1 - Link" },
+    { "type": "text", "id": "btn2_label", "label": "Botão 2 - Texto", "default": "Conheça a Marca" },
+    { "type": "url", "id": "btn2_url", "label": "Botão 2 - Link" }
   ],
-  "presets": [
-    {
-      "name": "Hero"
-    }
-  ]
+  "presets": [{ "name": "Hero" }]
 }
 {% endschema %}
