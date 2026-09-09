@@ -8,9 +8,9 @@
       {% endif %}
       <div class="product-card-quick-add">
         {% if product.variants.size == 1 %}
-          <button class="btn-quick-add" onclick="event.preventDefault();alphaQuickAdd(this,{{ product.variants.first.id }})">Adicionar Rápido</button>
+          <button class="btn-quick-add" onclick="event.preventDefault();event.stopPropagation();alphaQuickAdd(this,{{ product.variants.first.id }})">Adicionar Rápido</button>
         {% else %}
-          <a href="{{ product.url }}" class="btn-quick-add">Ver Opções</a>
+          <button class="btn-quick-add" onclick="event.preventDefault();event.stopPropagation();window.location.href='{{ product.url }}'">Ver Opções</button>
         {% endif %}
       </div>
     </div>
