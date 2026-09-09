@@ -12,7 +12,6 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "bg_image": "shopify://shop_images/hero03.png",
         "eyebrow": "Alpha Niche · Decants Exclusivos",
         "headline": "A essência do",
         "headline_em": "extraordinário",
@@ -20,7 +19,8 @@
         "btn1_label": "Explorar Coleção",
         "btn1_url": "",
         "btn2_label": "Conheça a Marca",
-        "btn2_url": ""
+        "btn2_url": "",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/2316035cb86d4e7e9c2ce4ce355c53c2.mp4"
       }
     },
     "collections": {
