@@ -1,3 +1,9 @@
+<nav class="breadcrumbs container">
+  <a href="/" class="breadcrumb-item">Início</a>
+  <span class="breadcrumb-sep">›</span>
+  {% if product.collections.first %}<a href="{{ product.collections.first.url }}" class="breadcrumb-item">{{ product.collections.first.title }}</a><span class="breadcrumb-sep">›</span>{% endif %}
+  <span class="breadcrumb-current">{{ product.title }}</span>
+</nav>
 <!-- PRODUCT PAGE -->
 <div class="product-page">
   <div class="container">
@@ -62,7 +68,7 @@
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
           {%- endif -%}
 
-          <button type="submit" name="add" class="add-to-cart"
+          <button type="submit" data-main-atc name="add" class="add-to-cart"
                   data-add-to-cart
                   {% unless product.available %}disabled{% endunless %}>
             {%- if product.available -%}Adicionar ao Carrinho{%- else -%}Esgotado{%- endif -%}
@@ -119,4 +125,10 @@
     {%- endif -%}
 
   </div>
+</div>
+
+<div class="sticky-atc" id="sticky-atc">
+  <span class="sticky-atc-title">{{ product.title }}</span>
+  <span class="sticky-atc-price">{{ product.price | money }}</span>
+  <button class="sticky-atc-btn" onclick="document.querySelector('[data-main-atc]')?.click()">Adicionar ao Carrinho</button>
 </div>

@@ -1,5 +1,13 @@
 <footer>
   <div class="container">
+    <div class="footer-newsletter-section">
+  <div class="footer-newsletter-label">Fique por dentro</div>
+  <div class="footer-newsletter-heading">Novidades, lançamentos e ofertas exclusivas.</div>
+  <form class="footer-newsletter-form" onsubmit="return alphaNewsletter(event,this)">
+    <input type="email" class="footer-newsletter-input" placeholder="seu@email.com" required>
+    <button type="submit" class="footer-newsletter-btn">Assinar</button>
+  </form>
+</div>
     <div class="footer-grid">
       <div>
         <div class="footer-brand-name">Alpha Niche</div>
@@ -39,4 +47,28 @@
       <span>Feito com excelência · Brasil</span>
     </div>
   </div>
+<div class="container">
+  <div class="footer-bottom-bar">
+    <div class="footer-social">
+      <a href="https://instagram.com/alphaniche" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://tiktok.com/@alphaniche" class="footer-social-link" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.09-2.79v-3.5a6.34 6.34 0 1 0 5.54 6.29V8.85a8.18 8.18 0 0 0 4.78 1.52V6.87a4.85 4.85 0 0 1-1.01-.18z"/></svg>
+      </a>
+    </div>
+    <div class="footer-payment-icons">
+      <span class="payment-icon-pill">Pix</span>
+      <span class="payment-icon-pill">Visa</span>
+      <span class="payment-icon-pill">Mastercard</span>
+      <span class="payment-icon-pill">Elo</span>
+      <span class="payment-icon-pill">Boleto</span>
+    </div>
+  </div>
+</div>
+<script>
+window.alphaQuickAdd=function(btn,id){var t=btn.textContent;btn.disabled=true;btn.textContent='...';fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:id,quantity:1})}).then(function(r){return r.ok?r.json():Promise.reject();}).then(function(){btn.textContent='✓ Adicionado';btn.classList.add('added');setTimeout(function(){btn.textContent=t;btn.classList.remove('added');btn.disabled=false;},2200);}).catch(function(){btn.textContent='Erro';setTimeout(function(){btn.textContent=t;btn.disabled=false;},1800);});};
+document.addEventListener('DOMContentLoaded',function(){var bar=document.getElementById('sticky-atc');var trigger=document.querySelector('[data-main-atc]');if(!bar||!trigger)return;new IntersectionObserver(function(e){bar.classList.toggle('visible',!e[0].isIntersecting);},{threshold:0}).observe(trigger);});
+window.alphaNewsletter=function(e,f){e.preventDefault();var btn=f.querySelector('button');var inp=f.querySelector('input');btn.textContent='...';fetch('/contact',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'contact[email]='+encodeURIComponent(inp.value)+'&contact[body]=Newsletter&form_type=contact&utf8=%E2%9C%93'}).then(function(){btn.textContent='✓ Inscrito!';inp.value='';setTimeout(function(){btn.textContent='Assinar';},3000);});return false;};
+</script>
 </footer>
