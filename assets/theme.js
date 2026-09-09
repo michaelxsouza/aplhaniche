@@ -201,3 +201,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }).catch(() => {});
 
 });
+
+
+/* ---- SEARCH OVERLAY ---- */
+(function() {
+  const overlay = document.getElementById('search-overlay');
+  if (!overlay) return;
+  const input = overlay.querySelector('.search-overlay-input');
+
+  function openSearch() {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input && input.focus(), 50);
+  }
+
+  function closeSearch() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-search-trigger]').forEach(btn => {
+    btn.addEventListener('click', openSearch);
+  });
+
+  const closeBtn = overlay.querySelector('[data-search-close]');
+  if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeSearch();
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeSearch();
+  });
+})();
