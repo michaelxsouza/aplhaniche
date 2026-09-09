@@ -1288,38 +1288,17 @@ footer{
 }
 .cg-card:hover .cg-card-arrow { opacity: 1; transform: translateY(0); }
 
-/* ---- HERO SLIDESHOW ------------------------------------------- */
+/* ---- HERO BACKGROUND ------------------------------------------- */
 .hero-full {
   position: relative;
   overflow: hidden;
+  background-image: url('https://cdn.shopify.com/s/files/1/0758/6408/0453/files/image_62f5fa75-3a2d-4a83-8e85-f42572b51cc0.png');
+  background-size: cover;
+  background-position: center;
 }
 .hero-full::before,
 .hero-full::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-.hero-full::before {
-  background-image: url('https://cdn.shopify.com/s/files/1/0758/6408/0453/files/hero-alpha.png');
-  animation: hero-slide-a 12s infinite;
-}
-.hero-full::after {
-  background-image: url('https://cdn.shopify.com/s/files/1/0758/6408/0453/files/image_23c254ab-3329-4204-b496-908cc27eeee8.png');
-  animation: hero-slide-b 12s infinite;
-}
-@keyframes hero-slide-a {
-  0%, 42% { opacity: 1; }
-  50%, 92% { opacity: 0; }
-  100%     { opacity: 1; }
-}
-@keyframes hero-slide-b {
-  0%, 42% { opacity: 0; }
-  50%, 92% { opacity: 1; }
-  100%     { opacity: 0; }
+  display: none;
 }
 .hero-overlay,
 .hero-inner {
