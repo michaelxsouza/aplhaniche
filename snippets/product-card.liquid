@@ -6,9 +6,6 @@
       {% else %}
         <div class="product-card-no-image"></div>
       {% endif %}
-      {% if product.compare_at_price > product.price %}
-        <span class="product-card-badge">Promoção</span>
-      {% endif %}
       <div class="product-card-quick-add">
         {% if product.variants.size == 1 %}
           <button class="btn-quick-add" onclick="event.preventDefault();alphaQuickAdd(this,{{ product.variants.first.id }})">Adicionar Rápido</button>
